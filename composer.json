@@ -1,0 +1,11 @@
+{
+    "require": {
+        "dimuska139/rawg-sdk-php": "^1.0",
+      "ext-pdo": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rawg\\" : "src/utils/"
+        }
+    }
+}
