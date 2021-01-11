@@ -684,7 +684,7 @@ true Pacific/Easter
 false Pacific/Efate
 false Pacific/Enderbury
 false Pacific/Fakaofo
-false Pacific/Fiji
+true Pacific/Fiji
 false Pacific/Funafuti
 false Pacific/Galapagos
 false Pacific/Gambier
@@ -1333,7 +1333,7 @@ true posix/Pacific/Easter
 false posix/Pacific/Efate
 false posix/Pacific/Enderbury
 false posix/Pacific/Fakaofo
-false posix/Pacific/Fiji
+true posix/Pacific/Fiji
 false posix/Pacific/Funafuti
 false posix/Pacific/Galapagos
 false posix/Pacific/Gambier
@@ -1406,14 +1406,20 @@ false posix/WET
 false posix/Zulu
 false posixrules
 </TimeZones>
-      <StartupTime>1608252972</StartupTime>
+      <StartupTime>1608546801</StartupTime>
     </root>
     <database id="2" parent="1" name="BDD_Projeto">
       <ObjectId>16386</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>690</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1076</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|16467|16469|1
+sequence|table|24736|16387|2
+sequence|table|24745|16413|8
+sequence|table|24757|16397|5
+sequence|table|24780|16431|4
+sequence|table|24791|16431|5
+sequence|table|24821|16469|3
 </Relations>
     </database>
     <database id="3" parent="1" name="postgres">
@@ -1488,7 +1494,7 @@ UC/10
 </Acl>
       <StateNumber>275</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>691</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1077</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="18" parent="2" name="plpgsql">
@@ -1588,269 +1594,385 @@ UC/10
       <HandlerId>335</HandlerId>
       <Type>index</Type>
     </access-method>
-    <sequence id="30" parent="17" name="lista_favoritos_id_jogo_seq">
+    <sequence id="30" parent="17" name="desenvolvedora_id_desenvovledora_seq">
+      <ObjectId>24757</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>974</StateNumber>
+      <DataType>integer|0s</DataType>
+    </sequence>
+    <sequence id="31" parent="17" name="jogo_id_jogo_seq">
+      <ObjectId>24745</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>968</StateNumber>
+      <DataType>integer|0s</DataType>
+    </sequence>
+    <sequence id="32" parent="17" name="lista_favoritos_id_jogo_fav_seq">
+      <ObjectId>24821</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1033</StateNumber>
+      <DataType>integer|0s</DataType>
+    </sequence>
+    <sequence id="33" parent="17" name="lista_favoritos_id_jogo_seq">
       <ObjectId>16467</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>667</StateNumber>
+      <StateNumber>860</StateNumber>
       <SequenceIdentity>0</SequenceIdentity>
       <DataType>integer|0s</DataType>
     </sequence>
-    <table id="31" parent="17" name="desenvolvedora">
+    <sequence id="34" parent="17" name="plataforma_id_plataforma_seq">
+      <ObjectId>24736</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>935</StateNumber>
+      <DataType>integer|0s</DataType>
+    </sequence>
+    <sequence id="35" parent="17" name="plataforma_jogo_id_jogo_rel_seq">
+      <ObjectId>24791</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1011</StateNumber>
+      <DataType>integer|0s</DataType>
+    </sequence>
+    <sequence id="36" parent="17" name="plataforma_jogo_id_plataforma_rel_seq1">
+      <ObjectId>24780</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1008</StateNumber>
+      <DataType>integer|0s</DataType>
+    </sequence>
+    <table id="37" parent="17" name="desenvolvedora">
       <ObjectId>16397</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>493</StateNumber>
+      <StateNumber>974</StateNumber>
     </table>
-    <table id="32" parent="17" name="jogo">
+    <table id="38" parent="17" name="jogo">
       <ObjectId>16413</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>621</StateNumber>
+      <StateNumber>1027</StateNumber>
     </table>
-    <table id="33" parent="17" name="lista_favoritos">
+    <table id="39" parent="17" name="lista_favoritos">
       <ObjectId>16469</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>493</StateNumber>
+      <StateNumber>1033</StateNumber>
     </table>
-    <table id="34" parent="17" name="plataforma">
+    <table id="40" parent="17" name="plataforma">
       <ObjectId>16387</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>493</StateNumber>
+      <StateNumber>935</StateNumber>
     </table>
-    <table id="35" parent="17" name="plataforma_jogo">
+    <table id="41" parent="17" name="plataforma_jogo">
       <ObjectId>16431</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>493</StateNumber>
+      <StateNumber>1011</StateNumber>
     </table>
-    <column id="36" parent="31" name="nome_desenvolvedora">
+    <column id="42" parent="37" name="nome_desenvolvedora">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>493</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="37" parent="31" name="sede_desenvolvedora">
+    <column id="43" parent="37" name="sede_desenvolvedora">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>493</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="38" parent="31" name="url_site_d">
+    <column id="44" parent="37" name="url_site_d">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>493</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="39" parent="31" name="independente">
+    <column id="45" parent="37" name="independente">
       <Position>4</Position>
       <DataType>boolean|0s</DataType>
       <StateNumber>509</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <index id="40" parent="31" name="desenvolvedora_pkey">
-      <ObjectId>16403</ObjectId>
-      <StateNumber>493</StateNumber>
+    <column id="46" parent="37" name="id_desenvolvedora">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1075</StateNumber>
+      <DefaultExpression>nextval(&apos;desenvolvedora_id_desenvovledora_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="47" parent="37" name="nome_des_unique">
+      <ObjectId>24769</ObjectId>
+      <StateNumber>984</StateNumber>
       <ColNames>nome_desenvolvedora</ColNames>
       <Unique>1</Unique>
-      <Primary>1</Primary>
       <AccessMethodId>403</AccessMethodId>
       <CollationIds>100</CollationIds>
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <key id="41" parent="31" name="desenvolvedora_pkey">
-      <ObjectId>16404</ObjectId>
-      <StateNumber>493</StateNumber>
-      <ColNames>nome_desenvolvedora</ColNames>
+    <index id="48" parent="37" name="desenvolvedora_pkey">
+      <ObjectId>24760</ObjectId>
+      <StateNumber>974</StateNumber>
+      <ColNames>id_desenvolvedora</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>0</CollationIds>
+      <ClassIds>1978</ClassIds>
+    </index>
+    <key id="49" parent="37" name="desenvolvedora_pkey">
+      <ObjectId>24761</ObjectId>
+      <StateNumber>974</StateNumber>
+      <ColNames>id_desenvolvedora</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>desenvolvedora_pkey</UnderlyingIndexName>
     </key>
-    <column id="42" parent="32" name="nome_jogo">
+    <key id="50" parent="37" name="nome_des_unique">
+      <ObjectId>24770</ObjectId>
+      <StateNumber>984</StateNumber>
+      <ColNames>nome_desenvolvedora</ColNames>
+      <UnderlyingIndexName>nome_des_unique</UnderlyingIndexName>
+    </key>
+    <column id="51" parent="38" name="nome_jogo">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>493</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="43" parent="32" name="serie_jogo">
+    <column id="52" parent="38" name="serie_jogo">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>586</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="44" parent="32" name="nome_desen_jogo">
-      <Position>4</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>493</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="45" parent="32" name="data_publicacao">
+    <column id="53" parent="38" name="data_publicacao">
       <Position>5</Position>
       <DataType>date|0s</DataType>
       <StateNumber>493</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="46" parent="32" name="genero_jogo">
+    <column id="54" parent="38" name="genero_jogo">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>621</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="47" parent="32" name="jogo_pkey">
-      <ObjectId>16419</ObjectId>
-      <StateNumber>493</StateNumber>
+    <column id="55" parent="38" name="id_jogo">
+      <Position>8</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>968</StateNumber>
+      <DefaultExpression>nextval(&apos;jogo_id_jogo_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="56" parent="38" name="id_desen_jogo">
+      <Position>9</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1044</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="57" parent="38" name="nome_jogo_unique">
+      <ObjectId>24771</ObjectId>
+      <StateNumber>1027</StateNumber>
       <ColNames>nome_jogo</ColNames>
       <Unique>1</Unique>
-      <Primary>1</Primary>
       <AccessMethodId>403</AccessMethodId>
       <CollationIds>100</CollationIds>
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <key id="48" parent="32" name="jogo_pkey">
-      <ObjectId>16420</ObjectId>
-      <StateNumber>493</StateNumber>
-      <ColNames>nome_jogo</ColNames>
+    <index id="58" parent="38" name="jogo_pkey">
+      <ObjectId>24748</ObjectId>
+      <StateNumber>1027</StateNumber>
+      <ColNames>id_jogo</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>0</CollationIds>
+      <ClassIds>1978</ClassIds>
+    </index>
+    <key id="59" parent="38" name="jogo_pkey">
+      <ObjectId>24749</ObjectId>
+      <StateNumber>968</StateNumber>
+      <ColNames>id_jogo</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>jogo_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="49" parent="32" name="jogo_nome_desen_jogo_fkey">
-      <ObjectId>16509</ObjectId>
-      <StateNumber>568</StateNumber>
-      <ColNames>nome_desen_jogo</ColNames>
+    <key id="60" parent="38" name="nome_jogo_unique">
+      <ObjectId>24772</ObjectId>
+      <StateNumber>987</StateNumber>
+      <ColNames>nome_jogo</ColNames>
+      <UnderlyingIndexName>nome_jogo_unique</UnderlyingIndexName>
+    </key>
+    <foreign-key id="61" parent="38" name="id_jogo_foreign">
+      <ObjectId>24807</ObjectId>
+      <StateNumber>1027</StateNumber>
+      <ColNames>id_desen_jogo</ColNames>
       <RefTableId>16397</RefTableId>
-      <RefColPositions>1</RefColPositions>
+      <RefColPositions>5</RefColPositions>
       <RefTableName>desenvolvedora</RefTableName>
       <RefKeyName>desenvolvedora_pkey</RefKeyName>
-      <RefColNames>nome_desenvolvedora</RefColNames>
+      <RefColNames>id_desenvovledora</RefColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="50" parent="33" name="id_jogo">
+    <column id="62" parent="39" name="id_jogo_lista">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>493</StateNumber>
+      <StateNumber>980</StateNumber>
       <TypeId>23</TypeId>
       <IdentityKind>by-default</IdentityKind>
     </column>
-    <column id="51" parent="33" name="jogo_nome_fav">
-      <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
+    <column id="63" parent="39" name="id_jogo_fav">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>493</StateNumber>
-      <TypeId>1043</TypeId>
+      <StateNumber>1033</StateNumber>
+      <DefaultExpression>nextval(&apos;lista_favoritos_id_jogo_fav_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
     </column>
-    <index id="52" parent="33" name="lista_favoritos_pkey">
-      <ObjectId>16472</ObjectId>
-      <StateNumber>493</StateNumber>
-      <ColNames>id_jogo
-jogo_nome_fav</ColNames>
+    <index id="64" parent="39" name="composite_pkey">
+      <ObjectId>24832</ObjectId>
+      <StateNumber>1036</StateNumber>
+      <ColNames>id_jogo_lista
+id_jogo_fav</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
       <AccessMethodId>403</AccessMethodId>
-      <CollationIds>0,100</CollationIds>
-      <CollationNames>default</CollationNames>
-      <ClassIds>1978,3126</ClassIds>
+      <CollationIds>0,0</CollationIds>
+      <ClassIds>1978,1978</ClassIds>
     </index>
-    <key id="53" parent="33" name="lista_favoritos_pkey">
-      <ObjectId>16473</ObjectId>
-      <StateNumber>493</StateNumber>
-      <ColNames>id_jogo
-jogo_nome_fav</ColNames>
+    <index id="65" parent="39" name="unique_fav">
+      <ObjectId>24834</ObjectId>
+      <StateNumber>1062</StateNumber>
+      <ColNames>id_jogo_fav</ColNames>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>0</CollationIds>
+      <ClassIds>1978</ClassIds>
+    </index>
+    <key id="66" parent="39" name="composite_pkey">
+      <ObjectId>24833</ObjectId>
+      <StateNumber>1036</StateNumber>
+      <ColNames>id_jogo_lista
+id_jogo_fav</ColNames>
       <Primary>1</Primary>
-      <UnderlyingIndexName>lista_favoritos_pkey</UnderlyingIndexName>
+      <UnderlyingIndexName>composite_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="54" parent="33" name="lista_favoritos_jogo_nome_fav_fkey">
-      <ObjectId>16474</ObjectId>
-      <StateNumber>493</StateNumber>
-      <ColNames>jogo_nome_fav</ColNames>
+    <key id="67" parent="39" name="unique_fav">
+      <ObjectId>24835</ObjectId>
+      <StateNumber>1062</StateNumber>
+      <ColNames>id_jogo_fav</ColNames>
+      <UnderlyingIndexName>unique_fav</UnderlyingIndexName>
+    </key>
+    <foreign-key id="68" parent="39" name="id_jogo_fav_foreign">
+      <ObjectId>24824</ObjectId>
+      <StateNumber>1033</StateNumber>
+      <ColNames>id_jogo_fav</ColNames>
       <RefTableId>16413</RefTableId>
-      <RefColPositions>1</RefColPositions>
+      <RefColPositions>8</RefColPositions>
       <RefTableName>jogo</RefTableName>
       <RefKeyName>jogo_pkey</RefKeyName>
-      <RefColNames>nome_jogo</RefColNames>
+      <RefColNames>id_jogo</RefColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="55" parent="34" name="nome_plataforma">
+    <column id="69" parent="40" name="nome_plataforma">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>493</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="56" parent="34" name="plataforma_pkey">
-      <ObjectId>16390</ObjectId>
-      <StateNumber>493</StateNumber>
+    <column id="70" parent="40" name="id_plataforma">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>935</StateNumber>
+      <DefaultExpression>nextval(&apos;plataforma_id_plataforma_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="71" parent="40" name="plataforma_nome_plataforma_uindex">
+      <ObjectId>24773</ObjectId>
+      <StateNumber>990</StateNumber>
       <ColNames>nome_plataforma</ColNames>
       <Unique>1</Unique>
-      <Primary>1</Primary>
       <AccessMethodId>403</AccessMethodId>
       <CollationIds>100</CollationIds>
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <key id="57" parent="34" name="plataforma_pkey">
-      <ObjectId>16391</ObjectId>
-      <StateNumber>493</StateNumber>
-      <ColNames>nome_plataforma</ColNames>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>plataforma_pkey</UnderlyingIndexName>
-    </key>
-    <column id="58" parent="35" name="plataforma_rel">
-      <Position>1</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>493</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="59" parent="35" name="jogo_plat_rel">
-      <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>493</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <index id="60" parent="35" name="plataforma_jogo_pkey">
-      <ObjectId>16437</ObjectId>
-      <StateNumber>493</StateNumber>
-      <ColNames>plataforma_rel
-jogo_plat_rel</ColNames>
+    <index id="72" parent="40" name="plataforma_pkey">
+      <ObjectId>24743</ObjectId>
+      <StateNumber>953</StateNumber>
+      <ColNames>id_plataforma</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
       <AccessMethodId>403</AccessMethodId>
-      <CollationIds>100,100</CollationIds>
-      <CollationNames>default
-default</CollationNames>
-      <ClassIds>3126,3126</ClassIds>
+      <CollationIds>0</CollationIds>
+      <ClassIds>1978</ClassIds>
     </index>
-    <key id="61" parent="35" name="plataforma_jogo_pkey">
-      <ObjectId>16438</ObjectId>
-      <StateNumber>493</StateNumber>
-      <ColNames>plataforma_rel
-jogo_plat_rel</ColNames>
+    <key id="73" parent="40" name="plataforma_pkey">
+      <ObjectId>24744</ObjectId>
+      <StateNumber>953</StateNumber>
+      <ColNames>id_plataforma</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>plataforma_pkey</UnderlyingIndexName>
+    </key>
+    <column id="74" parent="41" name="id_plataforma_rel">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1008</StateNumber>
+      <DefaultExpression>nextval(&apos;plataforma_jogo_id_plataforma_rel_seq1&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="75" parent="41" name="id_jogo_rel">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1011</StateNumber>
+      <DefaultExpression>nextval(&apos;plataforma_jogo_id_jogo_rel_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="76" parent="41" name="plataforma_jogo_pkey">
+      <ObjectId>24802</ObjectId>
+      <StateNumber>1014</StateNumber>
+      <ColNames>id_plataforma_rel
+id_jogo_rel</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>0,0</CollationIds>
+      <ClassIds>1978,1978</ClassIds>
+    </index>
+    <key id="77" parent="41" name="plataforma_jogo_pkey">
+      <ObjectId>24803</ObjectId>
+      <StateNumber>1014</StateNumber>
+      <ColNames>id_plataforma_rel
+id_jogo_rel</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>plataforma_jogo_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="62" parent="35" name="plataforma_jogo_plataforma_rel_fkey">
-      <ObjectId>24712</ObjectId>
-      <StateNumber>686</StateNumber>
-      <ColNames>plataforma_rel</ColNames>
+    <foreign-key id="78" parent="41" name="id_plataforma_foreign">
+      <ObjectId>24783</ObjectId>
+      <StateNumber>1008</StateNumber>
+      <ColNames>id_plataforma_rel</ColNames>
       <RefTableId>16387</RefTableId>
-      <RefColPositions>1</RefColPositions>
+      <RefColPositions>2</RefColPositions>
       <RefTableName>plataforma</RefTableName>
       <RefKeyName>plataforma_pkey</RefKeyName>
-      <RefColNames>nome_plataforma</RefColNames>
+      <RefColNames>id_plataforma</RefColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <foreign-key id="63" parent="35" name="plataforma_jogo_jogo_plat_rel_fkey">
-      <ObjectId>24717</ObjectId>
-      <StateNumber>689</StateNumber>
-      <ColNames>jogo_plat_rel</ColNames>
+    <foreign-key id="79" parent="41" name="id_jogo_foreign">
+      <ObjectId>24794</ObjectId>
+      <StateNumber>1011</StateNumber>
+      <ColNames>id_jogo_rel</ColNames>
       <RefTableId>16413</RefTableId>
-      <RefColPositions>1</RefColPositions>
+      <RefColPositions>8</RefColPositions>
       <RefTableName>jogo</RefTableName>
       <RefKeyName>jogo_pkey</RefKeyName>
-      <RefColNames>nome_jogo</RefColNames>
+      <RefColNames>id_jogo</RefColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>

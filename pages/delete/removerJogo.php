@@ -1,28 +1,37 @@
 <?php
 
-require '../database/DesenvolvedoraModel.php';
-include_once '../database/database.ini.php';
+include '../../database/models.php';
+include_once '../../database/database.ini.php';
+
+use ConexaoPostgres\JogoModel as JogoModel;
+use ConexaoPostgres\Plataforma_jogoModel as Plataforma_jogoModel;
+use ConexaoPostgres\PlataformaModel;
 
 
-use ConexaoPostgres\DesenvolvedoraModel as DesenvolvedoraModel;
+$jogo_model = new JogoModel($pdo);
 
-$desenvolvedora_model = new DesenvolvedoraModel($pdo);
+$plataforma_model = new PlataformaModel($pdo);
+
+$plataforma_jogo_model = new Plataforma_jogoModel($pdo);
+$bg_handle = new BackgroundGetter();
+
 
 $key = $_REQUEST['key'];
-$desenvolvedora = $desenvolvedora_model->get_by_key($key);
+$jogo = $jogo_model->get_by_key($key);
 
-if (!empty($_GET['key'])) {
+if(!empty($_GET['key'])){
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $key = $_POST['key'];
     try {
-        $desenvolvedora_model->delete_by_key($key);
-        header("Location: ../pages/desenvolvedoras.php");
-    } catch (PDOException $e) {
+        $jogo_model->delete_by_key($key);
+        header("Location: ../pages/jogos.php");
+    }catch (PDOException $e){
         $error = $e->getMessage();
     }
 }
+
 ?>
 
 <!doctype html>
@@ -30,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MYGAMEBOOK - Remoção Desenvolvedora</title>
+    <title>MYGAMEBOOK - Remoção Jogo</title>
 
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -38,11 +47,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
             crossorigin="anonymous"></script>
-    <link rel="icon" href="../assets/favicon.ico"/>
+    <link rel="icon" href="../../assets/favicon.ico"/>
 
     <style>
 
-        .m img {
+        .m img{
             filter: brightness(30%);
         }
 
@@ -50,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             border-radius: 0 !important;
         }
 
-        .btn-group {
+        .btn-group{
             float: right;
         }
 
@@ -89,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </style>
 
 </head>
-<body class="d-flex h-100 text-center text-white bg-dark">
+<body class="d-flex h-0 text-center text-white bg-dark">
 
 <div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
     <header class="mb-auto">
@@ -103,48 +112,60 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <div class="row">
             <div class="col-auto me-auto">
-                <h1>Remover Desenvolvedora</h1>
+                <h1>Remover Jogo</h1>
             </div>
             <div class="col-auto">
                 <div class="text-end mb-4">
-                    <a class="btn btn-light" href="../pages/desenvolvedoras.php">Voltar</a>
+                    <a class="btn btn-light" href="../jogos.php">Voltar</a>
                 </div>
             </div>
         </div>
         <br>
 
-        <div class="">
-            <div class="card border border-1 text-dark rounded-0">
+        <div class="px-3">
+            <div class="card border border-1 border-white text-dark rounded-0">
                 <div class="row g-0">
-                    <div class="col-md-6 ">
-                        <div class="card border border-1  text-dark rounded-0 h-100">
-                            <div class="card-body">
-                                <h5 class="card-title py-2"><?php echo $desenvolvedora['nome_desenvolvedora'] ?></h5>
-                            </div>
-                            <p class="card-text ps-3">
-                                Sede: <?php echo $desenvolvedora['sede_desenvolvedora'] ?></p>
-                            <p class="card-text ps-3"><?php
-                                if ($desenvolvedora['independente'] == 'true') {
-                                    echo 'Desenvolvedora indie';
-                                } else {
-                                    echo 'Desenvolvedora subsidiária';
-                                }
-                                ?></p>
+                    <img src="<?php echo $bg_handle->get_background_image($jogo['nome_jogo'])?>" class="card-img-top rounded-0" alt="">
+                    <div class="col-md-8 ">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $jogo['nome_jogo']?></h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><?php echo $jogo['nome_desen_jogo']?></h6>
                         </div>
+                        <?php if (!is_null($jogo['serie_jogo'])) :?>
+                            <p class="card-text mb-2 ps-3">Série: <?php echo $jogo['serie_jogo']?></p>
+                        <?php endif; ?>
+                        <p class="card-text mb-2 ps-3">Data De Lançamento: <?php $date = date_create($jogo['data_publicacao']);
+                            echo date_format($date, 'd/m/Y'); ?></p>
+
+                        <p class="card-text mb-2 ps-3"><?php
+
+
+                            $results = $plataforma_jogo_model->get_all_by_key($jogo['id_jogo']);
+                            if (count($results) == 1){
+                                echo ('Disponível na plataforma:');
+                            }else{
+                                echo 'Disponível nas plataforma:';
+                            }
+
+                            foreach ($results as $plat){
+                                echo '<p class="card-text mb-2 ps-5">'. $plataforma_model->get_by_key($plat["id_plataforma_rel"])['nome_plataforma'] .'</p>';
+                            }
+                            ?></>
+
+                        <p class="card-text mb-2 ps-3">Genero: <?php echo $jogo['genero_jogo']?></p>
                     </div>
                     <div class="col-md-4 d-flex align-self-end flex-column">
-                        <form class="row row-cols-lg-auto g-3 align-items-baseline"
-                              action="removerDesenvolvedora.php?id=<?php echo $key ?>" method="post">
+                        <form class="row row-cols-lg-auto g-3 align-items-baseline" action="removerJogo.php?id=<?php echo $key?>" method="post">
                             <?php if (!empty($error)): ?>
                                 <span class="text-danger"> <?php echo $error ?></span>
                             <?php endif; ?>
-                            <input type="hidden" name="key" value="<?php echo $key ?>">
+                            <input type="hidden" name="key" value="<?php echo $key?>">
                             <div class="row-12 p-5" role="alert">
-                                <h5>Deseja excluir a desenvolvedora?</h5>
+                                <h5>Deseja excluir o jogo ?</h5>
                                 <div class="form actions ">
                                     <div class="text-end ">
                                         <button type="submit" class="btn btn-danger">Sim</button>
-                                        <a href="../pages/desenvolvedoras.php" type="btn" class="btn btn-dark">Não</a>
+                                        <a href="../jogos.php" type="btn" class="btn btn-dark">Não</a>
                                     </div>
                                 </div>
                             </div>
@@ -157,4 +178,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     </main>
 
-    <?php include '../templates/footer.php' ?>
+<?php include '../templates/footer.php' ?>

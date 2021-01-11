@@ -30,7 +30,6 @@
 
         body {
             text-shadow: 0 .05rem .1rem rgba(0, 0, 0, 0.5);
-            box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
         }
 
         .cover-container {
@@ -62,18 +61,18 @@
     </style>
 
 </head>
-<body class="d-flex h-100 text-center text-white bg-dark">
+<body class="d-flex h-100 text-center">
 
 <div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
-    <header class="mb-auto">
-        <div>
+    <header class="mb-auto text-dark">
+        <div >
             <h3 class="float-md-start mb-0 active">MYGAMEBOOK</h3>
 
-            <nav class="nav nav-masthead justify-content-center float-md-end">
-                <a class="nav-link" aria-current="page" role="tab" aria-selected="true" href="/index.php">Home</a>
-                <a class="nav-link" role="tab" aria-selected="false" href="../pages/jogos.php">Jogos</a>
-                <a class="nav-link" role="tab" aria-selected="false" href="../pages/desenvolvedoras.php">Desenvolvedoras</a>
-                <a class="nav-link" role="tab" aria-selected="false" href="../pages/Favoritos.php">Lista de Favoritos</a>
+            <nav class="nav nav-masthead justify-content-center float-md-end navbar-light ">
+                <a class="nav-link text-black-50" aria-current="page" role="tab" aria-selected="true" href="/index.php">Home</a>
+                <a class="nav-link text-black-50" role="tab" aria-selected="false" href="../pages/jogos.php">Jogos</a>
+                <a class="nav-link text-black-50" role="tab" aria-selected="false" href="../pages/desenvolvedoras.php">Desenvolvedoras</a>
+                <a class="nav-link text-black-50" role="tab" aria-selected="false" href="../pages/Favoritos.php">Lista de Favoritos</a>
             </nav>
         </div>
     </header>

@@ -8,7 +8,6 @@ class BackgroundGetter{
     public function __construct(){
 
         $params = parse_ini_file('rawg.ini');
-
         $this->client= new Rawg\ApiClient(new Rawg\Config($params['api_key'],$params['api_lang']));
     }
 
@@ -20,5 +19,4 @@ class BackgroundGetter{
 
         return $this->client->games()->getGames($game_filter)->getData()['results']['0']['background_image'];
     }
-
 }

@@ -1,10 +1,9 @@
 <?php
 
-require '../database/DesenvolvedoraModel.php';
-require '../database/database.ini.php';
+include '../database/models.php';
+include_once '../database/database.ini.php';
 
 use ConexaoPostgres\DesenvolvedoraModel;
-
 
 try {
     $desenvolvedoras_model = new DesenvolvedoraModel($pdo);
@@ -26,7 +25,7 @@ try {
         </div>
         <div class="col-auto">
             <div class="text-end mb-4">
-                <a class="btn btn-light" href="../forms/adicionarDesenvolvedora.php">Cadastrar nova desenvolvedora</a>
+                <a class="btn btn-primary" href="create/adicionarDesenvolvedora.php">Cadastrar nova desenvolvedora</a>
             </div>
         </div>
     </div>
@@ -36,7 +35,7 @@ try {
 
         <?php foreach ($desenvolvedoras as $desenvolvedora):?>
             <div class="col-md-6 ">
-                <div class="card border border-1  text-dark rounded-0">
+                <div class="card border border-1  text-white rounded-0 bg-success">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $desenvolvedora['nome_desenvolvedora']?></h5>
                     </div>
@@ -45,16 +44,16 @@ try {
                         if ($desenvolvedora['independente'] == 'true'){
                             echo 'Desenvolvedora indie';
                         }else{
-                            echo 'Desenvolvedora subsidiária';
+                            echo 'Desenvolvedora não indie';
                         }
                         ?></p>
                     <div class="float-end">
                         <div class="btn-group">
                             <?php if ((!is_null($desenvolvedora['url_site_d']) or $desenvolvedora['url_site_d'] != '') ) :?>
-                                <a class="btn btn-dark btn-sm " href="<?php echo $desenvolvedora['url_site_d']?>">Site</a>
+                                <a class="btn btn-primary btn-sm " href="<?php echo $desenvolvedora['url_site_d']?>">Site</a>
                             <?php endif; ?>
-                            <a class="btn btn-dark btn-sm " href="../forms/editarDesenvolvedora.php?key=<?php echo $desenvolvedora['nome_desenvolvedora'] ?>">Editar</a>
-                            <a class="btn btn-dark btn-sm fim" href="../forms/removerDesenvolvedora.php?key=<?php echo $desenvolvedora['nome_desenvolvedora'] ?>">Remover</a>
+                            <a class="btn btn-primary btn-sm " href="update/editarDesenvolvedora.php?key=<?php echo $desenvolvedora['id_desenvolvedora'] ?>">Editar</a>
+                            <a class="btn btn-primary btn-sm fim" href="delete/removerDesenvolvedora.php?key=<?php echo $desenvolvedora['id_desenvolvedora'] ?>">Remover</a>
                         </div>
                     </div>
                 </div>
