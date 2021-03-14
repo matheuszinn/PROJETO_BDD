@@ -1,3 +1,8 @@
+/*
+    Essa foi a classe mais problemática, devido a natureza de um jogo ter várias plataformas
+*/
+
+
 <?php
 include '../../database/models.php';
 include_once '../../database/database.ini.php';
@@ -39,6 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $plataforma_jogo_model->insert_new($plat, $ultimo['id_jogo']);
         }
 
+        # Essa parte não está muito otimizada, infelizmente. São muitos acessos ao banco de dados
+        
         header("Location: ../pages/jogos.php");
 
     }catch (PDOException $e){
