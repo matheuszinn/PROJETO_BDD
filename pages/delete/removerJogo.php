@@ -144,7 +144,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                             if (count($results) == 1){
                                 echo ('Disponível na plataforma:');
                             }else{
-                                echo 'Disponível nas plataforma:';
+                                echo 'Disponíveis nas plataformas:';
                             }
 
                             foreach ($results as $plat){
