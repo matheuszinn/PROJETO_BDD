@@ -6,4 +6,8 @@ O objetivo do trabalho é criar uma aplicação usando um banco de dados criado 
 
 ### Idéia
 
-A ideia do projeto é criar uma plataforma de amostragem de jogos, onde vocẽ possa criar uma lista de favoritos.
+A ideia do projeto é criar uma plataforma de amostragem de jogos, onde você possa criar uma lista de favoritos.
+
+### Resultado
+
+Não está perfeito, mas pra primeira experiência é aceitável. Não está muito no MVC também, mas está 😁
